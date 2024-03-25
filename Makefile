@@ -44,4 +44,5 @@ install: doc gz
 update:
 	sudo apt update
 	sudo apt install -yu `cat apt.txt`
+	opam install -y `cat reqs.opam`
 gz:

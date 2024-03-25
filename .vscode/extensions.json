@@ -2,7 +2,7 @@
     "recommendations": [
         "stkb.rewrap",
         "ryuta46.multi-command",
-        // "ms-vscode.makefile-tools",
+        "ms-vscode.makefile-tools",
         // "ms-vscode-remote.remote-ssh",
         // formatters
         "xaver.clang-format",
