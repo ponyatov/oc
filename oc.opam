@@ -1,16 +1,17 @@
 opam-version: "2.0"
-synopsis: "OCaml workout & tiny compiler"
-description: """
+synopsis:     "OCaml workout & tiny compiler"
+description:  """
 """
-maintainer: "Dmitry Ponyatov <dponyatov@gmail.com>"
-authors: "Dmitry Ponyatov <dponyatov@gmail.com>"
-license: "Unlicense"
-homepage: "https://github.com/ponyatov/oc"
-bug-reports: "https://github.com/ponyatov/oc/issues"
+maintainer:   "Dmitry Ponyatov <dponyatov@gmail.com>"
+authors:      "Dmitry Ponyatov <dponyatov@gmail.com>"
+license:      "MIT"
+homepage:     "https://github.com/ponyatov/oc"
+bug-reports:  "https://github.com/ponyatov/oc/issues"
 depends: [
   "dune" {>= "2.0"}
   "ocaml-lsp-server"
+  "utop"
 #   "cmdliner" {>= "1.1.0"}
 ]
 build: ["dune" "build" "-p" name "-j" jobs]
-dev-repo: "https://github.com/ponyatov/oc.git"
+# dev-repo: "https://github.com/ponyatov/oc.git"
