@@ -1,6 +1,14 @@
 opam-version: "2.0"
 synopsis:     "OCaml workout & tiny compiler"
 description:  """
+OCaml-hosted #compilib: Compiler Library
+
+**[[compiler/compiler]] made as the library**
+- hosted over some high-level *[[dynamic language]]*,
+	- well suited for large data structures transformations
+		  - [[typed tree]]s and [[object graph]]s
+		  - rich [[oop/OOP|OOP]] and [[pattern matching]]
+	- optimal for programmer's mind set ([[functional programming]])
 """
 maintainer:   "Dmitry Ponyatov <dponyatov@gmail.com>"
 authors:      "Dmitry Ponyatov <dponyatov@gmail.com>"
@@ -11,6 +19,7 @@ depends: [
   "dune" {>= "2.0"}
   "ocaml-lsp-server"
   "utop"
+  "ocamlformat"
 #   "cmdliner" {>= "1.1.0"}
 ]
 build: ["dune" "build" "-p" name "-j" jobs]

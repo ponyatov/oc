@@ -15,5 +15,6 @@
         "daohong-emilio.yash",
         // OCaml
         "ocamllabs.ocaml-platform",
+        "scen.ocamlformat-vscode",
     ]
 }

@@ -26,6 +26,7 @@
     "editor.insertSpaces": true,
     "editor.detectIndentation": false,
     "editor.rulers": [80],
+    "rewrap.wrappingColumn": 79,
     "workbench.tree.indent": 24,
     "explorer.autoReveal": false,
     "files.insertFinalNewline": true,
