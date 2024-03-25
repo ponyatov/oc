@@ -43,7 +43,6 @@ doc:
 .PHONY: install update gz ref
 install: doc gz
 	$(MAKE) update
-	dub build dfmt
 update:
 	sudo apt update
 	sudo apt install -yu `cat apt.txt`
