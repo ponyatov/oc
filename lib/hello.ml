@@ -44,3 +44,12 @@ val ratio : int -> int -> oat = <fun>
 1,2,3;;
 - : int * int * int = (1, 2, 3)
 
+let (x,y,z) = (1,2,3);;
+val x : int = 1
+val y : int = 2
+val z : int = 3
+
+# let languages = ["OCaml";"Perl";"C"];;
+val languages : string list = ["OCaml"; "Perl"; "C"]
+
+1::2::[];;
