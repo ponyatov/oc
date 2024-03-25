@@ -5,10 +5,10 @@ OCaml-hosted #compilib: Compiler Library
 
 **[[compiler/compiler]] made as the library**
 - hosted over some high-level *[[dynamic language]]*,
-	- well suited for large data structures transformations
-		  - [[typed tree]]s and [[object graph]]s
-		  - rich [[oop/OOP|OOP]] and [[pattern matching]]
-	- optimal for programmer's mind set ([[functional programming]])
+    - well suited for large data structures transformations
+        - [[typed tree]]s and [[object graph]]s
+        - rich [[oop/OOP|OOP]] and [[pattern matching]]
+    - optimal for programmer's mind set ([[functional programming]])
 """
 maintainer:   "Dmitry Ponyatov <dponyatov@gmail.com>"
 authors:      "Dmitry Ponyatov <dponyatov@gmail.com>"

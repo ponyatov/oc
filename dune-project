@@ -8,5 +8,5 @@
 
 (package
  (name oc)
- (synopsis "OCaml-hosted #compilib")
+ (synopsis "OCaml-hosted #compilib: Compiler Library")
  (depends ocaml core utop dune ocamlformat))
