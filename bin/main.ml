@@ -1,2 +1,1 @@
-let () =
-  "Hello, World!" |> Parser.noparser |> String.concat " " |> print_endline
+let () = "Hello, World!" |> Parser.no |> String.concat " " |> print_endline

@@ -1,2 +1,1 @@
-
-let noparser (str:string) = ["<";str;">"]
+let no (str : string) = [ "<"; str; ">"; AST.Digit ]

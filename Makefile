@@ -17,7 +17,9 @@ CF   = clang-format
 # src
 C += $(wildcard src/*.c*)
 H += $(wildcard inc/*.h*)
-M += $(wildcard bin/*.ml) $(wildcard lib/*.ml)
+M += $(wildcard bin/*.ml)
+M += $(wildcard lib/parser/*.ml)
+M += $(wildcard lib/ast/*.ml)
 
 # all
 .PHONY: all
