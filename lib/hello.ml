@@ -70,8 +70,8 @@ first [1;2;3];;
 first [];;
 - : 'a list = []
 
-type opt =
-  | Some(x)
+type opt<'a> =
+  | Some('a)
   | None
 ;;
 
@@ -79,3 +79,5 @@ List.map ((+) 1) [1;2;3];;
 
 let (+!) (x1,y1) (x2,y2) = (x1+x2,y1+y2);;
 (1,2) +! (3,4) ;;
+
+let sum ?(b=1) a = a + b;;
