@@ -1,2 +1,2 @@
 
-let parser (str:string) = [str]
+let noparser (str:string) = ["<";str;">"]

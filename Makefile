@@ -22,7 +22,7 @@ M += $(wildcard bin/*.ml) $(wildcard lib/*.ml)
 # all
 .PHONY: all
 all: $(M) Makefile dune-project
-	dune build
+	dune build && _build/default/bin/main.exe
 
 # format
 format: tmp/format_c tmp/format_ml

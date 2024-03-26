@@ -1,3 +1,2 @@
-open Lib
-
-let () = "Hello, World!" |> Lib.Parser.parser |> print_endline
+let () =
+  "Hello, World!" |> Parser.noparser |> String.concat " " |> print_endline
