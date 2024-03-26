@@ -1,6 +1,6 @@
 print_string "Hello world!\n";;
 
-(* utop *)
+utop
 
 #require "core";;
 open Core;;
