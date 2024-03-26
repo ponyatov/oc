@@ -53,3 +53,29 @@ val z : int = 3
 val languages : string list = ["OCaml"; "Perl"; "C"]
 
 1::2::[];;
+
+[1,2,3];;
+- : (int * int * int) list = [(1, 2, 3)]
+[1;2;3];;
+- : int list = [1; 2; 3]
+
+let first lst =
+  match lst with
+  | head::tail -> [head]
+  | [] -> []
+;;
+
+first [1;2;3];;
+- : int list = [1]
+first [];;
+- : 'a list = []
+
+type opt =
+  | Some(x)
+  | None
+;;
+
+List.map ((+) 1) [1;2;3];;
+
+let (+!) (x1,y1) (x2,y2) = (x1+x2,y1+y2);;
+(1,2) +! (3,4) ;;
