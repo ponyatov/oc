@@ -17,12 +17,12 @@ CF   = clang-format
 # src
 C += $(wildcard src/*.c*)
 H += $(wildcard inc/*.h*)
-M += $(wildcard bin/*.ml*) $(wildcard lib/*.ml*)
+M += $(wildcard bin/*.ml) $(wildcard lib/*.ml)
 
 # all
 .PHONY: all
 all: $(M) Makefile dune-project
-	dune run
+	dune build
 
 # format
 format: tmp/format_c tmp/format_ml
