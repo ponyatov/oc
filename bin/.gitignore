@@ -1,3 +1,4 @@
 oc
 *.cm?
+*.o
 !.gitignore
