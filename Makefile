@@ -30,8 +30,8 @@ all: $(M) Makefile dune-project
 format: tmp/format_c tmp/format_ml
 tmp/format_c: $(C) $(H)
 	$(CF) -style=file -i $? && touch $@
-tmp/format_ml: $(M)
-	ocamlformat -i $? && touch $@
+tmp/format_ml: $(M) .ocamlformat
+	ocamlformat -i $(M) && touch $@
 
 # rule
 bin/$(MODULE): $(C) $(H) Makefile
