@@ -27,8 +27,16 @@ let apt = open_out (meta ^ "/apt.txt");;
 List.map (fun s -> Printf.fprintf apt "%s\n" s) [
   "git make curl";
   "code meld doxygen clang-format";
-  "g++ flex bison libreadline-dev"
+  "g++ flex bison libreadline-dev";
+  (List.map (fun s -> Printf.sprintf "libsdl2%s-dev" s) [
+    "";"-image";"-ttf";
+    (* "-mixer";"-gfx";"-net" *)
+  ] |> String.concat " ");
+  "ocaml opam dune"
 ];;
 close_out apt;;
 
 let readme = open_out (meta ^ "/README.md");;
+
+let ini = open_out (meta ^ "/lib/ini.ini");;
+close_out ini;;
