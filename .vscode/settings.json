@@ -19,6 +19,7 @@
         "docs/**": true
     },
     "files.associations": {
+        "*.mlx": "ocaml"
     },
 
     // editor

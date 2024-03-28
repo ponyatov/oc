@@ -1,3 +1,6 @@
-type token = Char | Digit
+type token = Symbol of string | Number of int | String of string
 
-let toString token = match token with Char -> "char:" | Digit -> "digit:"
+let toString token = function Char -> "char:" | Digit -> "digit:";;
+
+toString Char;;
+toString Digit
