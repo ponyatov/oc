@@ -39,4 +39,8 @@ close_out apt;;
 let readme = open_out (meta ^ "/README.md");;
 
 let ini = open_out (meta ^ "/lib/ini.ini");;
+List.map (fun s -> Printf.fprintf ini "%s\n" s) [
+  "# init script\n";
+  "nop halt"
+];;
 close_out ini;;
