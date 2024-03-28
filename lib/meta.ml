@@ -13,6 +13,15 @@ List.map (fun ch -> Printf.fprintf ch "!.gitignore\n") giti;;
 List.map (fun ch -> flush ch) giti;;
 
 let mk = open_out (meta ^ "/Makefile");;
+List.map (fun s -> Printf.fprintf mk "%s\n\n" s) [
+  "MODULE = $(notdir #(CURDIR))";
+  "# all\n.PHONY: all\nall: bin/$(MODULE) lib/$(MODULE)\n\t$^";
+  "# format\n.PHONY: format\nformat:";
+  "# rule\nbin/$(MODULE): $(C) $(H)\n\t$(CXX) $(CFLAGS) -o $@ $(C) $(L)";
+  "# doc\n.PHONY: doc\ndoc:";
+  "# install\n.PHONY: install update gz\ninstall:\nupdate:\ngz:";
+];;
+close_out mk;;
 
 let apt = open_out (meta ^ "/apt.txt");;
 List.map (fun s -> Printf.fprintf apt "%s\n" s) [
