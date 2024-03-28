@@ -18,6 +18,7 @@ CF   = clang-format
 C += $(wildcard src/*.c*)
 H += $(wildcard inc/*.h*)
 M += $(wildcard bin/*.ml)
+M += $(wildcard lib/*.ml)
 M += $(wildcard lib/parser/*.ml)
 M += $(wildcard lib/ast/*.ml)
 
