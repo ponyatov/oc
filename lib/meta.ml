@@ -44,3 +44,18 @@ List.map (fun s -> Printf.fprintf ini "%s\n" s) [
   "nop halt"
 ];;
 close_out ini;;
+
+let cf = open_out (meta ^ "/.clang-format");;
+Printf.fprintf cf "BasedOnStyle: Google
+IndentWidth:  4
+TabWidth:     4
+UseTab:       Never
+ColumnLimit:  80
+UseCRLF:      false
+
+SortIncludes: false
+
+AllowShortBlocksOnASingleLine: Always
+AllowShortFunctionsOnASingleLine: All
+";;
+close_out cf;;
