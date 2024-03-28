@@ -15,6 +15,11 @@ List.map (fun ch -> flush ch) giti;;
 let mk = open_out (meta ^ "/Makefile");;
 
 let apt = open_out (meta ^ "/apt.txt");;
+List.map (fun s -> Printf.fprintf apt "%s\n" s) [
+  "git make curl";
+  "code meld doxygen clang-format";
+  "g++ flex bison libreadline-dev"
+];;
+close_out apt;;
 
 let readme = open_out (meta ^ "/README.md");;
-
