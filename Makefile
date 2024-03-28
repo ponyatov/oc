@@ -1,18 +1,19 @@
 # var
-MODULE  = $(notdir $(CURDIR))
+MODULE = $(notdir $(CURDIR))
 
 # dir
-CWD   = $(CURDIR)
-BIN   = $(CWD)/bin
-INC   = $(CWD)/inc
-SRC   = $(CWD)/src
-TMP   = $(CWD)/tmp
-REF   = $(CWD)/ref
-GZ    = $(HOME)/gz
+CWD = $(CURDIR)
+BIN = $(CWD)/bin
+DOC = $(CWD)/doc
+LIB = $(CWD)/lib
+INC = $(CWD)/inc
+SRC = $(CWD)/src
+TMP = $(CWD)/tmp
+GZ  = $(HOME)/gz
 
 # tool
 CURL = curl -L -o
-CF   = clang-format
+CF   = clang-format -style=file
 
 # src
 C += $(wildcard src/*.c*)
@@ -22,15 +23,19 @@ M += $(wildcard lib/*.ml)
 M += $(wildcard lib/parser/*.ml)
 M += $(wildcard lib/ast/*.ml)
 
+# cfg
+CFLAGS += -I$(INC) -I$(SRC) -I$(TMP)
+
 # all
 .PHONY: all
-all: $(M) Makefile dune-project
-	dune build && _build/default/bin/main.exe
+all: bin/$(MODULE) lib/ini.ini
+	$^
 
 # format
-format: tmp/format_c tmp/format_ml
+.PHONY: format
+format: tmp/format_c
 tmp/format_c: $(C) $(H)
-	$(CF) -style=file -i $? && touch $@
+	$(CF) -i $? && touch $@
 tmp/format_ml: $(M) .ocamlformat
 	ocamlformat -i $(M) && touch $@
 
@@ -43,7 +48,7 @@ bin/$(MODULE): $(C) $(H) Makefile
 doc:
 
 # install
-.PHONY: install update gz ref
+.PHONY: install update gz
 install: doc gz
 	$(MAKE) update
 update:
@@ -51,3 +56,4 @@ update:
 	sudo apt install -yu `cat apt.txt`
 	opam install -y . --deps-only
 gz:
+
