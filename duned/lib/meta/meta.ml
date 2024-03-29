@@ -27,6 +27,7 @@ List.map (fun s -> fprintf apt "%s\n" s) [
 ];;
 close_out apt;;
 
+print_string Readme.readme() ;;
 let readme = open_out (meta ^ "/README.md");;
 close_out readme;;
 

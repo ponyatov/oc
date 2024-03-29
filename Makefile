@@ -28,8 +28,10 @@ CFLAGS += -I$(INC) -I$(SRC) -I$(TMP)
 
 # all
 .PHONY: all
-all: bin/$(MODULE) lib/ini.ini
-	$^
+all:
+	dune build
+# all: bin/$(MODULE) lib/ini.ini
+# 	$^
 
 # format
 .PHONY: format
