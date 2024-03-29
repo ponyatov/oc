@@ -8,7 +8,10 @@
 
 (generate_opam_files)
 
+(homepage "https://github.com/ponyatov/oc")
+
 (package
  (name oc)
  (synopsis "OCaml-hosted #compilib: Compiler Library")
+ (description "")
  (depends ocaml core utop dune ocamlformat))

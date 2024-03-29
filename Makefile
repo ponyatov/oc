@@ -35,7 +35,7 @@ all:
 
 # format
 .PHONY: format
-format: tmp/format_c
+format: tmp/format_c tmp/format_ml
 tmp/format_c: $(C) $(H)
 	$(CF) -i $? && touch $@
 tmp/format_ml: $(M) .ocamlformat

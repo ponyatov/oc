@@ -1,4 +1,4 @@
 # profile = default
 profile=janestreet
-break-cases = fit
-margin = 77
+# break-cases = fit
+# margin = 77
