@@ -1,5 +1,7 @@
 (* metaCompiler *)
 
+open Printf;;
+
 let meta = "meta" ;;
 let perm = 0o755 ;;
 let dirs = [ ".vscode" ; "bin"; "doc"; "lib"; "inc"; "src"; "tmp" ] ;;
@@ -9,11 +11,49 @@ let mk dir = if not (Sys.file_exists dir ) then Sys.mkdir dir perm ;;
 List.map mk dirs ;;
 
 let giti = List.map open_out (List.map (fun dir -> dir ^ "/.gitignore") dirs);;
-List.map (fun ch -> Printf.fprintf ch "!.gitignore\n") giti;;
+List.map (fun ch -> fprintf ch "!.gitignore\n") giti;;
 List.map (fun ch -> flush ch) giti;;
 
+let apt = open_out (meta ^ "/apt.txt");;
+List.map (fun s -> fprintf apt "%s\n" s) [
+  "git make curl";
+  "code meld doxygen clang-format";
+  "g++ flex bison libreadline-dev";
+  (List.map (fun s -> sprintf "libsdl2%s-dev" s) [
+    "";"-image";"-ttf";
+    (* "-mixer";"-gfx";"-net" *)
+  ] |> String.concat " ");
+  "ocaml opam dune"
+];;
+close_out apt;;
+
+let readme = open_out (meta ^ "/README.md");;
+close_out readme;;
+
+let ini = open_out (meta ^ "/lib/ini.ini");;
+List.map (fun s -> fprintf ini "%s\n" s) [
+  "# init script\n";
+  "nop halt"
+];;
+close_out ini;;
+
+let cf = open_out (meta ^ "/.clang-format");;
+fprintf cf "BasedOnStyle: Google
+IndentWidth:  4
+TabWidth:     4
+UseTab:       Never
+ColumnLimit:  80
+UseCRLF:      false
+
+SortIncludes: false
+
+AllowShortBlocksOnASingleLine: Always
+AllowShortFunctionsOnASingleLine: All
+";;
+close_out cf;;
+
 let mk = open_out (meta ^ "/Makefile");;
-List.map (fun s -> Printf.fprintf mk "%s\n\n" s) [
+List.map (fun s -> fprintf mk "%s\n\n" s) [
   "# var\nMODULE = $(notdir $(CURDIR))";
   "# dir
 CWD = $(CURDIR)
@@ -40,45 +80,8 @@ gz:";
 ];;
 close_out mk;;
 
-let apt = open_out (meta ^ "/apt.txt");;
-List.map (fun s -> Printf.fprintf apt "%s\n" s) [
-  "git make curl";
-  "code meld doxygen clang-format";
-  "g++ flex bison libreadline-dev";
-  (List.map (fun s -> Printf.sprintf "libsdl2%s-dev" s) [
-    "";"-image";"-ttf";
-    (* "-mixer";"-gfx";"-net" *)
-  ] |> String.concat " ");
-  "ocaml opam dune"
-];;
-close_out apt;;
-
-let readme = open_out (meta ^ "/README.md");;
-
-let ini = open_out (meta ^ "/lib/ini.ini");;
-List.map (fun s -> Printf.fprintf ini "%s\n" s) [
-  "# init script\n";
-  "nop halt"
-];;
-close_out ini;;
-
-let cf = open_out (meta ^ "/.clang-format");;
-Printf.fprintf cf "BasedOnStyle: Google
-IndentWidth:  4
-TabWidth:     4
-UseTab:       Never
-ColumnLimit:  80
-UseCRLF:      false
-
-SortIncludes: false
-
-AllowShortBlocksOnASingleLine: Always
-AllowShortFunctionsOnASingleLine: All
-";;
-close_out cf;;
-
 let cpp = open_out (meta ^ "/src/main.cpp");;
-Printf.fprintf cpp "#include \"main.hpp\"
+fprintf cpp "#include \"main.hpp\"
 
 int main(int argc, char* argv[]) {
     arg(0, argv[0]);
@@ -94,7 +97,7 @@ void arg(int argc, char argv[]) {  //
 close_out cpp;;
 
 let hpp = open_out (meta ^ "/inc/main.hpp");;
-Printf.fprintf hpp "#pragma once
+fprintf hpp "#pragma once
 
 #include <stdlib.h>
 #include <stdio.h>
