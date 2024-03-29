@@ -1,12 +1,5 @@
 (* metaCompiler *)
 
-open Printf;;
-
-let dirs = [ ".vscode" ; "bin"; "doc"; "lib"; "inc"; "src"; "tmp" ] ;;
-let dirs = [ meta ] @ List.map (fun s -> meta ^ "/" ^ s) dirs ;;
-let mk dir = if not (Sys.file_exists dir ) then Sys.mkdir dir perm ;;
-
-List.map mk dirs ;;
 
 let giti = List.map open_out (List.map (fun dir -> dir ^ "/.gitignore") dirs);;
 List.map (fun ch -> fprintf ch "!.gitignore\n") giti;;
@@ -24,10 +17,6 @@ List.map (fun s -> fprintf apt "%s\n" s) [
   "ocaml opam dune"
 ];;
 close_out apt;;
-
-print_string Readme.readme() ;;
-let readme = open_out (meta ^ "/README.md");;
-close_out readme;;
 
 let ini = open_out (meta ^ "/lib/ini.ini");;
 List.map (fun s -> fprintf ini "%s\n" s) [
