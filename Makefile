@@ -7,7 +7,8 @@ D += $(wildcard dune*) $(wildcard src/dune*)
 
 run: $(M) $(D)
 	dune build $(MODULE).exe
-# dune exec $(MODULE)
+# dune exec $(MODULE).exe
+#  $(MODULE)
 
 format: tmp/format_ml
 tmp/format_ml: $(M) $(D)

@@ -1,1 +1,2 @@
-src/dune
+(executable
+ (name hello))
