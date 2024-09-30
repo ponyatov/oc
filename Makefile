@@ -1,12 +1,15 @@
+MODULE = hello
+
 M += $(wildcard *.ml)
 
 .PHONY: run format
 
-run: hello
+run: $(MODULE)
 	./$^
 
-hello: $(M)
+$(MODULE): $(M)
 	dune build
 
-format: $(M)
-	dune fmt
+format: tmp/format_ml
+tmp/format_ml: $(M)
+	dune fmt && touch $@
