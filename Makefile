@@ -6,14 +6,18 @@ D += $(wildcard dune*) $(wildcard src/dune*)
 .PHONY: run format
 
 run: $(M) $(D)
-# dune build $(MODULE).exe
-	dune exec ./$(MODULE).exe
+# dune build src/$(MODULE).exe
+	dune exec src/$(MODULE).exe
 
 format: tmp/format_ml
-tmp/format_ml: $(M) $(D)
+tmp/format_ml: $(M) $(D) .ocamlformat
 	dune fmt && touch $@
 
 .PHONY: install update
-install:
+install: .ocamlformat
 update:
 	dune build ; opam install -y . --deps-only
+
+.ocamlformat:
+	echo "version=`ocamlformat --version`" > $@
+	echo "profile=default"                >> $@
