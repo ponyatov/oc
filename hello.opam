@@ -7,6 +7,7 @@ homepage: "https://github.com/ponyatov/oc/tree/hello"
 bug-reports: "dponyatov@gmail.com"
 depends: [
   "dune" {>= "3.11"}
+  "ocamlformat"
   "odoc" {with-doc}
 ]
 build: [

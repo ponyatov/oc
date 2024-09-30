@@ -9,5 +9,5 @@
  (name hello)
  (synopsis "OCaml workout")
  ; (description "")
- ; (depends )
+ (depends ocamlformat)
 )

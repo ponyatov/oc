@@ -13,3 +13,8 @@ run: $(M) $(D)
 format: tmp/format_ml
 tmp/format_ml: $(M) $(D)
 	dune fmt && touch $@
+
+.PHONY: install update
+install:
+update:
+	dune build ; opam install -y . --deps-only
