@@ -5,8 +5,8 @@
 (homepage    "https://github.com/ponyatov/oc/tree/hello")
 (bug_reports "dponyatov@gmail.com")
 (package
- (name hello)
- (synopsis "OCaml workout")
+ (name         hello)
+ (synopsis    "OCaml workout")
  (description "https://cs3110.github.io/textbook/cover.html")
- (depends ocamlformat)
+ (depends      ocamlformat)
 )
