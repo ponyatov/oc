@@ -15,7 +15,7 @@ run: $(M) $(D)
 # format
 format: tmp/format_ml
 tmp/format_ml: $(M) $(D) .ocamlformat
-	dune fmt && touch $@
+	dune fmt ; touch $@
 
 .ocamlformat:
 	echo "version=`ocamlformat --version`" > $@

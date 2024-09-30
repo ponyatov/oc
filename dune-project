@@ -8,6 +8,6 @@
 (package
  (name hello)
  (synopsis "OCaml workout")
- ; (description "")
+ (description "https://cs3110.github.io/textbook/cover.html")
  (depends ocamlformat)
 )
