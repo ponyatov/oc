@@ -25,5 +25,6 @@ tmp/format_ml: $(M) $(D) .ocamlformat
 .PHONY: install update
 install:
 update:
-	dune build ; opam install -y . --deps-only
+	dune build
+	opam update ; opam install -y . --deps-only
 
