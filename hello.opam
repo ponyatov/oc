@@ -4,11 +4,14 @@ synopsis: "OCaml workout"
 description: "https://cs3110.github.io/textbook/cover.html"
 maintainer: ["Dmitry Ponyatov <dponyatov@gmail.com>"]
 authors: ["Dmitry Ponyatov <dponyatov@gmail.com>"]
+license: "MIT"
 homepage: "https://github.com/ponyatov/oc/tree/hello"
-bug-reports: "dponyatov@gmail.com"
+bug-reports: "http://t.me/dponyatov"
 depends: [
   "dune" {>= "3.11"}
+  "utop"
   "ocamlformat"
+  "ocaml-lsp-server"
   "odoc" {with-doc}
 ]
 build: [
