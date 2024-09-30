@@ -1,4 +1,4 @@
-(lang dune 3.3)
+(lang dune 3.11)
 (name hello)
 (generate_opam_files)
 (authors "Dmitry Ponyatov <dponyatov@gmail.com>")
