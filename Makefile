@@ -1,11 +1,11 @@
 MODULE = hello
 
-M += $(wildcard *.ml)
+M += $(wildcard src/*.ml)
 
 .PHONY: run format
 
-run: $(MODULE)
-	./$^
+run:
+	dune exec $(MODULE)
 
 $(MODULE): $(M)
 	dune build
