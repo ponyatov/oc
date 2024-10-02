@@ -9,5 +9,5 @@
  (name         hello)
  (synopsis    "OCaml workout")
  (description "https://cs3110.github.io/textbook/cover.html")
- (depends      utop ocamlformat ocaml-lsp-server)
+ (depends      utop ocamlformat ocaml-lsp-server batteries)
 )

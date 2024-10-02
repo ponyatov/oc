@@ -1,5 +1,5 @@
 # var
-MODULE = hello
+MODULE = $(notdir $(CURDIR))
 
 # src
 M += $(wildcard src/*.ml)
@@ -24,7 +24,9 @@ tmp/format_ml: $(M) $(D) .ocamlformat
 # install
 .PHONY: install update
 install:
+	$(MAKE) update
 update:
-	dune build
-	opam update ; opam install -y . --deps-only
-
+	sudo apt update
+	sudo apt install -uy `cat apt.txt`
+	opam update
+	opam install -y . --deps-only
